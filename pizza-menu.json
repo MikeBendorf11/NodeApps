@@ -1,0 +1,20 @@
+{
+  "toppings": {
+    "mushroom": 0.3,
+    "olives": 0.4,
+    "salami": 1,
+    "anchovies": 0.2,
+    "extra cheese": 1.5
+  },
+  "crust":{
+    "flatbread": 5,
+    "thin": 6.5,
+    "chesse stuffed": 10.50
+  },
+  "size":{
+    "small": 1,
+    "medium": 2,
+    "large": 3
+  }
+  
+}
