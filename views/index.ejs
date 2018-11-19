@@ -11,7 +11,7 @@
 <body>
   <h1>Pizza Order</h1>
   <h2>Create your pizza</h2>
-  <form action="/" method="POST">
+  <form action="/confirmation/" method="POST">
     <table border="1">
       <tr><td colspan="4"><h3>Toppings:</h3></td></tr>
       <tr>
@@ -24,41 +24,45 @@
         <td><%= key %></td>
         <td><input type="checkbox" name="<%= key %>"/></td> 
 <%    i++;                        
-    }                                 %> 
+    }                                         %> 
       </tr>
     </table> 
     <!-- Ends toppings table --> <br>
     <table border="1">
-      <tr><td colspan="4"><h3>Crust:</h3></td></tr>
+      <tr><td colspan="6"><h3>Crust:</h3></td></tr>
       <tr>
 <%  var i =0; 
     for(let key in menu.crust) { 
+      var checked = ''
+      if(i==0) checked = 'checked';
       if(i!=0 && i%3==0){                     %>
       </tr>
-      <tr>
+      <tr> 
 <%    }                                       %>
-        <td><input type="radio" name="crust" value="<%= key %>"/></td> 
+        <td><input type="radio" name="crust" value="<%= key %>" <%= checked %>/></td> 
         <td><%= key %></td>
         
 <%    i++;                        
-    }                                 %> 
+    }                                         %> 
       </tr>
     </table>   
     <!-- Ends crust table --> <br>
     <table border="1">
-      <tr><td colspan="4"><h3>Size:</h3></td></tr>
+      <tr><td colspan="6"><h3>Size:</h3></td></tr>
       <tr>
 <%  var i =0; 
     for(let key in menu.size) { 
+      var checked = ''
+      if(i==0) checked = 'checked';
       if(i!=0 && i%3==0){                     %>
       </tr>
       <tr>
 <%    }                                       %>
-        <td><input type="radio" name="size" value="<%= key %>"/></td> 
+        <td><input type="radio" name="size" value="<%= key %>" <%= checked %>/></td> 
         <td><%= key %></td>
         
 <%    i++;                        
-    }                                 %> 
+    }                                         %> 
       </tr>
     </table>   
     <!-- Ends size table -->                            

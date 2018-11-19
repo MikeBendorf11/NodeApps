@@ -7,14 +7,13 @@
     "extra cheese": 1.5
   },
   "crust":{
-    "flatbread": 5,
-    "thin": 6.5,
+    "flatbread": 7.5,
+    "thin": 9.5,
     "chesse stuffed": 10.50
   },
   "size":{
     "small": 1,
-    "medium": 2,
-    "large": 3
-  }
-  
+    "medium": 1.6,
+    "large": 2.1
+  } 
 }

@@ -3,19 +3,21 @@ const app = express();
 //const path = require('path');
 const bodyParser = require('body-parser');
 const menu = require('./pizza-menu')
+const Order = require('./order')
+
 
 //console.log(menu);
 //app.use(express.static(path.join(__dirname,'public')));
 app.use(bodyParser.urlencoded({extended:false}));
 app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
-  
 	res.render('index', { menu: menu});
 });
-app.post('/', (req,res)=>{
+app.post('/confirmation/', (req,res)=>{
+  //console.log(req);
   const body =  req.body; 
   const toppings = []; 
-  const order = {}; 
+  
   console.log(body);
   for (var key in body){
    // console.log(body[key]);
@@ -23,8 +25,9 @@ app.post('/', (req,res)=>{
     toppings.push(key);
     }
   }
-  console.log(toppings);
-  res.render('index',{ })
+  let order = new Order(toppings, body.crust, body.size);
+  console.log(order.getTotals());
+  res.render('confirmation',{ order: order }) 
 })
 
 var server = app.listen(3000, ()=>{
