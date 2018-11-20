@@ -7,6 +7,64 @@
   <title>Document</title>
 </head>
 <body>
-  <p><%= order%></p>
+  <h2>Is this information correct?</h2>
+  <table>
+    <tr>
+      <td><span>Toppings: </span></td>
+<%     if(order.toppings>0) {        %>
+      <td><%=order.toppings%></td>
+<%    } else {                       %>
+      <td>none</td>      
+<%    }                              %>      
+    </tr>
+    <tr>
+      <td><span>Crust: </span></td>
+      <td><%= order.crust %></td>
+    </tr>
+    <tr>
+      <td><span>Size: </span></td>
+      <td><%=order.size%></td>
+    </tr>
+    <tr>
+      <td><span>Name: </span></td>
+      <td><%=order.name%></td>
+    </tr>
+    <tr>
+      <td><span>Address: </span></td>
+      <td><%=order.address%></td>
+    </tr>
+    <tr>
+      <td><span>Phone: </span></td>
+      <td><%=order.phone%></td>
+    </tr>
+    <tr>
+        <td colspan="2">____________________________<br><br></td>
+    </tr>
+    <tr>
+      <td><span>Quantity: </span></td>
+      <td><%=order.quantity%></td>
+    </tr>
+    <tr>
+      <td><span>Subtotal: </span></td>
+      <td><%=order.getTotals().beforeTax.toFixed(2)%></td>
+    </tr>
+    <tr>
+      <td><span>Tax: </span></td>
+      <td><%=order.getTotals().tax.toFixed(2)%></td>
+    </tr>
+    <tr>
+      <td><span>Total: </span></td>
+      <td><%=order.getTotals().afterTax.toFixed(2)%></td>
+    </tr>
+    <tr>
+        <td colspan="2">____________________________<br></td>
+    </tr>
+  </table><br>
+  
+
+  <form action="/index/" method="POST">
+    <input type="submit" name="confirm" value="yes" onclick="alert('Your order has been placed! Estimated delivery: <%=order.getDelivery()%>')"/>
+    <input type="submit" name="confirm" value="no" />
+  </form>
 </body>
 </html>

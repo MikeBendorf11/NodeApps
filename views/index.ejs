@@ -11,8 +11,8 @@
 <body>
   <h1>Pizza Order</h1>
   <h2>Create your pizza</h2>
-  <form action="/confirmation/" method="POST">
-    <table border="1">
+  <form action="/confirmation/" method="POST" autocomplete="on">
+    <table width="300px" border="1">
       <tr><td colspan="4"><h3>Toppings:</h3></td></tr>
       <tr>
 <%  var i =0; 
@@ -28,7 +28,7 @@
       </tr>
     </table> 
     <!-- Ends toppings table --> <br>
-    <table border="1">
+    <table  width="300px" border="1">
       <tr><td colspan="6"><h3>Crust:</h3></td></tr>
       <tr>
 <%  var i =0; 
@@ -47,7 +47,7 @@
       </tr>
     </table>   
     <!-- Ends crust table --> <br>
-    <table border="1">
+    <table  width="300px" border="1">
       <tr><td colspan="6"><h3>Size:</h3></td></tr>
       <tr>
 <%  var i =0; 
@@ -69,6 +69,34 @@
 
       
     </table><br>
+    <table>
+      <tr>
+        <td><span>Quantity: </span> </td>
+        <td><input type="number" name="quantity" min="1" max="10" value="1"></td>
+      </tr>
+      <tr>
+        <td><span>Name: </span></td>
+        <td><input type="text" name="name"/></td>
+<%    if (errors.name) {       %>
+        <td><span><%=errors.name%></span></td>
+<%    } %>
+      </tr>
+      <tr>
+        <td><span>Phone: </span></td>
+        <td><input type="text" name="phone"/></td>
+<%    if (errors.phone) {       %>
+          <td><span><%=errors.phone%></span></td>
+<%    } %>        
+      </tr>
+      <tr>
+        <td><span>Address: </span></td>
+        <td><input type="text" name="address"/></td>
+<%    if (errors.address) {       %>
+          <td><span><%=errors.address%></span></td>
+<%    } %>    
+      </tr>
+    </table><br>
+
     <button type="submit" name="submit">Order</button>
   </form>
 
