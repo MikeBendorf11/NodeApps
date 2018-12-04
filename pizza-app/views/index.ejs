@@ -5,28 +5,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="/reload/reload.js"></script> 
   <title>Document</title>
-</head>
+</head> 
 
-<body>
-  <h1>Pizza Order</h1>
+<body> 
+  <h1>Pizza Order</h1>    
   <h2>Create your pizza</h2>
-  <form action="/confirmation/" method="POST" autocomplete="on">
-    <table width="300px" border="1">
+  <form action="/confirmation/" method="POST" autocomplete="on">  
+    <table width="300px" border="1">  
       <tr><td colspan="4"><h3>Toppings:</h3></td></tr>
       <tr>
-<%  var i =0; 
-    for(let key in menu.toppings) { 
-      if(i!=0 && i%2==0){                     %>
-      </tr>
-      <tr>
+<%  var i =0;          
+    for(let key in menu.toppings) {  
+      if(i!=0 && i%2==0){                     %>  
+      </tr> 
+      <tr>   
 <%    }                                       %>
         <td><%= key %></td>
         <td><input type="checkbox" name="<%= key %>"/></td> 
 <%    i++;                        
     }                                         %> 
       </tr>
-    </table> 
+    </table>   
     <!-- Ends toppings table --> <br>
     <table  width="300px" border="1">
       <tr><td colspan="6"><h3>Crust:</h3></td></tr>

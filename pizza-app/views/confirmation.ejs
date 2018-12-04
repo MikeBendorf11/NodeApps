@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/reload/reload.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="/stylesheets/style.css">
   <title>Document</title>
 </head>
 <body>
@@ -12,10 +17,10 @@
     <tr>
       <td><span>Toppings: </span></td>
 <%     if(order.toppings>0) {        %>
-      <td><%=order.toppings%></td>
+      <td><%=order.topings%></td>
 <%    } else {                       %>
       <td>none</td>      
-<%    }                              %>      
+<%    }                              %>         
     </tr>
     <tr>
       <td><span>Crust: </span></td>
@@ -35,7 +40,7 @@
     </tr>
     <tr>
       <td><span>Phone: </span></td>
-      <td><%=order.phone%></td>
+      <td><%=order.phone%></td> 
     </tr>
     <tr>
         <td colspan="2">____________________________<br><br></td>

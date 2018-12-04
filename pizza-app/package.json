@@ -1,10 +1,10 @@
 {
-  "name": "pizzaapp",
-  "version": "1.0.0",
-  "description": "assignment1",
-  "main": "index.js",
+  "name": "pizza-app",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "debug": "nodemon --inspect ./bin/www",
+    "start": "node ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -13,12 +13,17 @@
   "author": "mikebendorf11@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0"
+  },
+  "devDependencies": {
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
-    "express": "^4.16.4",
-    "npm": "^6.4.1",
-    "supervisor": "^0.12.0",
+    "nodemon": "^1.18.7",
+    "reload": "^2.4.0",
     "validator": "^10.9.0"
-  },
-  "devDependencies": {}
+  }
 }

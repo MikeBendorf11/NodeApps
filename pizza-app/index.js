@@ -6,6 +6,8 @@ const menu = require('./pizza-menu')
 const Order = require('./order')
 const validator = require('validator');
 const fs = require('fs');
+const reload = require('reload')
+
 let order = {}
 
 //console.log(menu);
@@ -14,7 +16,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
 	res.render('index', { menu: menu, errors: {}});
-});
+}); 
 app.post('/confirmation/', (req,res)=>{
   //console.log(req);
   const body =  req.body; 
@@ -60,22 +62,20 @@ app.post('/index/',(req, res)=>{
   const body =  req.body; 
   if(body.confirm=='yes'){
     let json = JSON.stringify(order, null, '\t');
-    fs.writeFile('./orders/'+Date.now()+'.json',json, (err) => {
-      if (err) throw err;
-      console.log('The file has been saved!');
-    })
+    console.log(json)
+    // fs.writeFile('./orders/'+Date.now()+'.json',json, (err) => {
+    //   if (err) throw err;
+    //   console.log('The file has been saved!');
+    // })
   } else {
     order = {};
   }
   res.render('index', { menu: menu, errors: {} });
 })
 
+reload(app);
 var server = app.listen(3000, ()=>{
   console.log('listening on' + server.address().address +'' + server.address().port);
 })
 
-/**
- * Check for changes
- * npm install supervisor -g
- * supervisor .
- */
+         
