@@ -25,6 +25,42 @@ router.get('/api/orders', function (req, res) {
   })
 });
 
+router.get('/api/orders/:param', function (req, res) {
+  var query = req.params;
+  var orders = [];
+  console.log(query);
+  Order.find(
+    { "phone": { 
+        "$regex": query.param, "$options": "i" 
+      }
+    },
+    function(err,data) { 
+      if(data!=[]){
+        data.forEach(v=>{
+          //console.log(v);
+          orders.push(v);
+        })
+        
+      }
+  
+    } 
+  );
+  Order.find(
+    { "address": { 
+        "$regex": query.param, "$options": "i" 
+      }
+    },
+    function(err,data) { 
+      if(data!=[]){ 
+        data.forEach(v=>{
+          //console.log(v);
+          orders.push(v);
+        })
+        res.json(orders)
+      } 
+    }
+  );
+});
 
 /* ?? to complete after front end */
 router.post('/api/orders', function (req, res) {

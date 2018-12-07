@@ -37,14 +37,23 @@ $(function ready() {
                 $('#statusMsg').removeClass();
                 $('#statusMsg').addClass('alert alert-success');
                 $('#statusMsg').html('Added the order');
+                $("#submitForm")[0].reset();
+                alert('Thanks, your order will be delivered in 30 minutes')
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 $('#statusMsg').removeClass();
                 $('#statusMsg').addClass('alert alert-danger');
                 $('#statusMsg').html('Error adding the order');
                 console.log('Request failed : ', jqXHR.responseJSON);
+                var fields = jqXHR.responseJSON.fields;
+                var str = '';
+                
+                    fields.name == false ? str += 'name ': null;
+                    fields.phone == false ? str += 'phone ': null;
+                    fields.address == false ? str += 'address ': null;
+                
                 var log = JSON.stringify(jqXHR.responseJSON.fields);
-                alert("Invalid Fields: " + log);
+                alert("Invalid Fields: " + str);
               
             }
         });
