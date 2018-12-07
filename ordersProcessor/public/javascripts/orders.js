@@ -6,6 +6,11 @@ $(function ready() {
         console.log(item);
           $('#orders').append(
               `
+              <table class="table table-striped table-bordered
+table-hover table-condensed">
+
+              
+              <tbody>
               <tr>
               <th>Order Id</th>
               <th>${item._id}</th>
@@ -45,8 +50,8 @@ $(function ready() {
                 <td>Address:</td>
                 <td>${item.address}</td>
               </tr>               
-              
-
+              </tbody>
+              </table> 
               `
           );
       });
