@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <% include head %>
+  <script src="javascripts/index2.js"></script>
+  
+</head>
+
+<body>
+  <div class="container">
+    <h1>
+      <%= title %>
+    </h1>
+
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="/">Add Order</a></li>
+      <li><a href="/orders">Orders</a></li>
+    </ul>
+
+    <br/>
+    <div class="row">
+      <div class="col-md-6">
+        <!-- ?? add client API ajax handle -->
+        <form method="post" id="submitForm" autocomplete="on">            
+          <table width="300px" border="1">  
+            <tr><td colspan="4"><h3>Toppings:</h3></td></tr>
+            <tr>
+      <%  var i =0;          
+          for(let key in menu.toppings) {  
+            if(i!=0 && i%2==0){                     %>  
+            </tr> 
+            <tr>   
+      <%    }                                       %>
+              <td><%= key %></td>
+              <td>
+                <input type="checkbox" name="toppings" value="<%= key %>" /></td> 
+      <%    i++;                        
+          }                                         %> 
+            </tr>
+          </table>   
+          <!-- Ends toppings table --> <br>
+          <table  width="300px" border="1">
+            <tr><td colspan="6"><h3>Crust:</h3></td></tr>
+            <tr>
+      <%  var i =0; 
+          for(let key in menu.crust) { 
+            var checked = ''
+            if(i==0) checked = 'checked';
+            if(i!=0 && i%3==0){                     %>
+            </tr>
+            <tr> 
+      <%    }                                       %>
+              <td><input type="radio" name="crust" value="<%= key %>" <%= checked %>/></td> 
+              <td><%= key %></td>
+              
+      <%    i++;                        
+          }                                         %> 
+            </tr>
+          </table>   
+          <!-- Ends crust table --> <br>
+          <table  width="300px" border="1">
+            <tr><td colspan="6"><h3>Size:</h3></td></tr>
+            <tr>
+      <%  var i =0; 
+          for(let key in menu.size) { 
+            var checked = ''
+            if(i==0) checked = 'checked';
+            if(i!=0 && i%3==0){                     %>
+            </tr>
+            <tr>
+      <%    }                                       %>
+              <td><input type="radio" name="size" value="<%= key %>" <%= checked %>/></td> 
+              <td><%= key %></td>
+              
+      <%    i++;                        
+          }                                         %> 
+            </tr>
+          </table>   
+          <!-- Ends size table -->                            
+      
+            
+          </table><br>
+          <table>
+            <tr>
+              <td><span>Quantity: </span> </td>
+              <td><input type="number" name="quantity" min="1" max="10" value="1"></td>
+            </tr>
+            <tr>
+              <td><span>Name: </span></td>
+              <td><input type="text" name="name"/></td>
+      <%    if (errors.name) {       %>
+              <td><span><%=errors.name%></span></td>
+      <%    } %>
+            </tr>
+            <tr>
+              <td><span>Phone: </span></td>
+              <td><input type="text" name="phone"/></td>
+      <%    if (errors.phone) {       %>
+                <td><span><%=errors.phone%></span></td>
+      <%    } %>        
+            </tr>
+            <tr>
+              <td><span>Address: </span></td>
+              <td><input type="text" name="address"/></td>
+      <%    if (errors.address) {       %>
+                <td><span><%=errors.address%></span></td>
+      <%    } %>    
+            </tr>
+          </table><br>
+      
+          <button type="submit" name="submit" class="btn btn-success">Submit</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
