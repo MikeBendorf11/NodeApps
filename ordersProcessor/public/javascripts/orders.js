@@ -1,5 +1,3 @@
-
-
 $(function ready() {
   function writeOrders(item) {
     $('#orders').append(
